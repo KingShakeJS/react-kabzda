@@ -11,12 +11,16 @@ function App() {
     return (
         <div>
             <PageTitle title={'App component'}/>
-            Article-1
-            <Rating value={3}/>
-            <Accordion titleValue={'menu'}/>
-            <Accordion titleValue={'users'}/>
 
-            Article-2
+            <Accordion
+                titleValue={'menu'}
+                collapsed={true}
+            />
+            <Accordion
+                titleValue={'users'}
+                collapsed={false}
+            />
+
             <Rating value={0}/>
             <Rating value={1}/>
             <Rating value={2}/>
