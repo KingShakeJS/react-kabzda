@@ -1,5 +1,8 @@
 import React from "react";
 
-export const PageTitle = (props: any) => {
+type PageTitlePT = {
+    title: string
+}
+export const PageTitle = (props: PageTitlePT) => {
     return (<h1>{props.title}</h1>)
 };

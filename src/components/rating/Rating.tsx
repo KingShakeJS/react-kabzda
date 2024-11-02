@@ -1,6 +1,9 @@
 import React from "react";
 
-export const Rating = (props: any) => {
+type RatingPT = {
+    value: 0 | 1 | 2 | 3 | 4 | 5
+}
+export const Rating = (props: RatingPT) => {
 
 
     if (props.value === 0) {
@@ -68,8 +71,10 @@ export const Rating = (props: any) => {
 
 };
 
-
-const Star = (props: any) => {
+type StarPT={
+    selected: boolean
+}
+const Star = (props: StarPT) => {
 
     if (props.selected) {
         return (

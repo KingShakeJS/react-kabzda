@@ -1,20 +1,28 @@
 import React from "react";
 
-export const Accordion = () => {
+type AccordionPT = {
+    titleValue: string
+}
+export const Accordion = (props: AccordionPT) => {
 
 
     return (
+
         <div>
-            <AccordionTitle/>
+            <AccordionTitle title={props.titleValue}/>
             <AccordionBody/>
         </div>
     );
 };
 
 // ////////////////////////////////////////////////////////////////////////
-const AccordionTitle = () => {
+
+type AccordionTitlePT = {
+    title: string
+}
+const AccordionTitle = (props: AccordionTitlePT) => {
     return (
-        <h3>Меню</h3>
+        <h3>{props.title}</h3>
     );
 };
 
