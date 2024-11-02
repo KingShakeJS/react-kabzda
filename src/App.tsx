@@ -2,37 +2,36 @@ import React from 'react';
 import './App.css';
 
 function App() {
-    debugger
+
     return (
         <div>
-            App component
+            <AppTitle/>
             <Rating/>
             <Accordion/>
+
         </div>
     );
 }
 
 
 export const Rating = () => {
-    debugger
 
     return (
-        <div>
-            <div>star</div>
-            <div>star</div>
-            <div>star</div>
-            <div>star</div>
-            <div>star</div>
-        </div>
+        <>
+            <Star/>
+            <Star/>
+            <Star/>
+            <Star/>
+            <Star/>
+        </>
     );
 };
 
 export const Accordion = () => {
-    debugger
+
 
     return (
         <div>
-
             <h3>Меню</h3>
             <ul>
                 <li>1</li>
@@ -44,5 +43,18 @@ export const Accordion = () => {
     );
 };
 
+
+export const AppTitle = () => {
+    return (<>App component</>)
+};
+
+
+export const Star = () => {
+    return (
+        <div>
+            star
+        </div>
+    );
+};
 
 export default App
