@@ -6,12 +6,14 @@ type Props = {
     titleValue:string
 };
 export const UncontrolledAccordion = (props: Props) => {
-    const [collapsed, setCollapsed] = useState<boolean>(true)
+    const [collapsed, setCollapsed] = useState<boolean>(false)
 
     return (
 
         <div>
             <AccordionTitle title={props.titleValue}/>
+            <button onClick={()=>{setCollapsed(!collapsed)}}>переключить</button>
+
             {
                 !collapsed && <AccordionBody/>
             }
