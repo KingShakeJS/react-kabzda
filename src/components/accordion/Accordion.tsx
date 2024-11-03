@@ -13,7 +13,7 @@ export const Accordion = (props: AccordionPT) => {
         <div>
             <AccordionTitle
                 title={props.titleValue}
-                onChange={props.onChange}
+                onChange={() => props.onChange()}
             />
             {
                 !props.collapsed && <AccordionBody/>
