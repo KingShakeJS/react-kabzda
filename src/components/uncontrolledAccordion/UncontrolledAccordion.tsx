@@ -3,7 +3,7 @@ import * as React from 'react';
 import {useState} from "react";
 
 type Props = {
-    titleValue:string
+    titleValue: string
 };
 export const UncontrolledAccordion = (props: Props) => {
     const [collapsed, setCollapsed] = useState<boolean>(false)
@@ -11,9 +11,12 @@ export const UncontrolledAccordion = (props: Props) => {
     return (
 
         <div>
-            <AccordionTitle title={props.titleValue}/>
-            <button onClick={()=>{setCollapsed(!collapsed)}}>переключить</button>
-
+            <AccordionTitle
+                title={props.titleValue}
+                onClick={() => {
+                    setCollapsed(!collapsed)
+                }}
+            />
             {
                 !collapsed && <AccordionBody/>
             }
@@ -25,10 +28,13 @@ export const UncontrolledAccordion = (props: Props) => {
 
 type AccordionTitlePT = {
     title: string
+    onClick: () => void
 }
 const AccordionTitle = (props: AccordionTitlePT) => {
     return (
-        <h3>{props.title}</h3>
+        <h3
+            onClick={props.onClick}
+        >{props.title}</h3>
     );
 };
 

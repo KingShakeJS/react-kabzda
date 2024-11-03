@@ -1,7 +1,7 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import {Accordion} from "./components/accordion/Accordion";
-import {Rating} from "./components/rating/Rating";
+import {RaringValueType, Rating} from "./components/rating/Rating";
 import {PageTitle} from "./components/pageTitle/PageTitle";
 import {OnOff} from "./components/onOff/OnOff";
 import {UncontrolledAccordion} from "./components/uncontrolledAccordion/UncontrolledAccordion";
@@ -10,26 +10,30 @@ import {UncontrolledRating} from "./components/uncontrolledRating/UncontrolledRa
 
 // остановился
 function App() {
+    const [ratingValue, setRatingValue] = useState<RaringValueType>(0)
 
     return (
         <div className={'App'}>
             <OnOff/>
 
 
-
             <PageTitle title={'App component'}/>
 
-            {/*<Accordion*/}
-            {/*    titleValue={'menu'}*/}
-            {/*    collapsed={true}*/}
-            {/*/>*/}
-            <UncontrolledAccordion
-                titleValue={'users'}
+            <Accordion
+                titleValue={'menu'}
+                collapsed={true}
             />
 
-            <UncontrolledRating/>
+            {/*<UncontrolledAccordion*/}
+            {/*    titleValue={'users'}*/}
+            {/*/>*/}
 
-            {/*<Rating value={0}/>*/}
+            {/*<UncontrolledRating/>*/}
+
+            <Rating
+                value={ratingValue}
+                onClick={setRatingValue}
+            />
 
 
         </div>
