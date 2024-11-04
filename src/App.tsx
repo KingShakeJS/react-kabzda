@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import './App.css';
-import {Accordion} from "./components/accordion/Accordion";
+import {Accordion, itemType} from "./components/accordion/Accordion";
 import {RaringValueType, Rating} from "./components/rating/Rating";
 import {PageTitle} from "./components/pageTitle/PageTitle";
 
@@ -15,6 +15,16 @@ function App() {
     const [ratingValue, setRatingValue] = useState<RaringValueType>(0)
     const [collapsed, setCollapsed] = useState<boolean>(false)
     const [on, setOn] = useState(false)
+
+    const [items, setItems] = useState<itemType[] >([
+        {value: 'aaa', title: '111'},
+        {value: 'sss', title: '222'},
+        {value: 'ddd', title: '333'},
+        {value: 'fff', title: '444'},
+    ])
+    const setItemsHandler = (value: string) => {
+
+    }
     return (
         <div className={'App'}>
 
@@ -25,6 +35,8 @@ function App() {
                 titleValue={'menu'}
                 collapsed={collapsed}
                 onChange={() => setCollapsed(!collapsed)}
+                items={items}
+                onClick={setItemsHandler}
             />
 
             {/*<UncontrolledAccordion*/}
@@ -32,7 +44,8 @@ function App() {
             {/*/>*/}
 
             <UncontrolledRating
-            onChange={(value:RaringValueType)=>{}}
+                onChange={(value: RaringValueType) => {
+                }}
             />
 
             <Rating
