@@ -31,7 +31,9 @@ function App() {
             {/*    titleValue={'users'}*/}
             {/*/>*/}
 
-            {/*<UncontrolledRating/>*/}
+            <UncontrolledRating
+            onChange={(value:RaringValueType)=>{}}
+            />
 
             <Rating
                 value={ratingValue}
@@ -46,6 +48,7 @@ function App() {
             <div>
                 <UncontrolledOnOff
                     onChange={setOn}
+
                 />
                 {
                     on.toString()
