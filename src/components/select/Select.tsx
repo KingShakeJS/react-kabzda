@@ -1,7 +1,7 @@
 import * as React from 'react';
+import {KeyboardEvent, useEffect, useState} from 'react';
 import {itemType} from "../accordion/Accordion";
 import s from './Select.module.css'
-import {ChangeEvent, KeyboardEvent, useEffect, useState} from "react";
 
 type SelectPT = {
     value?: any
@@ -10,9 +10,12 @@ type SelectPT = {
 };
 export const Select = (props: SelectPT) => {
     const selectedItem = props.items.find(item => item.value === props.value)
+    const hoveredItem = props.items.find(item => item.value === hoveredEl)
+
     const [active, setActive] = useState(true)
     const [hoveredEl, setHoveredEl] = useState(props.value)
-    const hoveredItem = props.items.find(item => item.value === hoveredEl)
+
+
 
 
     useEffect(() => {

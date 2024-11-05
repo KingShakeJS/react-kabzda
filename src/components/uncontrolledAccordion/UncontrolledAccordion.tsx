@@ -1,12 +1,19 @@
 // @flow
 import * as React from 'react';
-import {useState} from "react";
+import {useReducer} from 'react';
+import {reducer, TOGGLE_COLLAPSED} from "./reducer";
+
 
 type Props = {
     titleValue: string
 };
+
+
+
 export const UncontrolledAccordion = (props: Props) => {
-    const [collapsed, setCollapsed] = useState<boolean>(false)
+    // const [collapsed, setCollapsed] = useState<boolean>(false)
+
+    const [state, dispatch] = useReducer(reducer, {collapsed: false})
 
     return (
 
@@ -14,11 +21,11 @@ export const UncontrolledAccordion = (props: Props) => {
             <AccordionTitle
                 title={props.titleValue}
                 onClick={() => {
-                    setCollapsed(!collapsed)
+                    dispatch({type: TOGGLE_COLLAPSED})
                 }}
             />
             {
-                !collapsed && <AccordionBody/>
+                !state.collapsed && <AccordionBody/>
             }
         </div>
     );
