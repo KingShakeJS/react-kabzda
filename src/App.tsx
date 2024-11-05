@@ -10,7 +10,7 @@ import {OnOff} from "./components/onOff/OnOff";
 import {UncontrolledOnOff} from "./components/uncontrolledOnOff/UncontrolledOnOff";
 
 
-// остановился
+
 function App() {
     const [ratingValue, setRatingValue] = useState<RaringValueType>(0)
     const [collapsed, setCollapsed] = useState<boolean>(false)
