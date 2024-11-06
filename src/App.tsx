@@ -12,6 +12,7 @@ import {UncontrolledOnOff} from "./components/uncontrolledOnOff/UncontrolledOnOf
 
 
 function App() {
+
     const [ratingValue, setRatingValue] = useState<RaringValueType>(0)
     const [collapsed, setCollapsed] = useState<boolean>(false)
     const [on, setOn] = useState(false)
