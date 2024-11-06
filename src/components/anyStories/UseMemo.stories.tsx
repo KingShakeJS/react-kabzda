@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {useMemo, useState} from "react";
+import {useCallback, useMemo, useState} from "react";
 
 export default {
     title: 'UseMemo'
@@ -54,7 +54,6 @@ export const DifficultCounting = () => {
 }
 
 
-
 export const HelpsToReactMemo = () => {
     console.log('Example1')
 
@@ -64,11 +63,11 @@ export const HelpsToReactMemo = () => {
         'aaa', 'sss', 'dad', 'fff', 'ggg', 'hhh', 'jaj',
     ])
     const addUser = () => {
-        setUsers([...users, 'sssa'+new Date().getTime()])
+        setUsers([...users, 'sssa' + new Date().getTime()])
     }
-const newArr=useMemo(()=>{
-  return   users.filter(u => u.toLowerCase().indexOf('a') > -1)
-},[users])
+    const newArr = useMemo(() => {
+        return users.filter(u => u.toLowerCase().indexOf('a') > -1)
+    }, [users])
     return (
         <div>
             <button
@@ -86,8 +85,6 @@ const newArr=useMemo(()=>{
 }
 
 
-
-
 const SecretUsersTable = (props: { users: string[] }) => {
     console.log('UsersTable')
     return (
@@ -100,3 +97,58 @@ const SecretUsersTable = (props: { users: string[] }) => {
 }
 const UsersTable = React.memo(SecretUsersTable)
 
+
+export const LikeUseCallback = () => {
+
+
+    const [counter, setCounter] = useState(0)
+    const [books, setBooks] = useState([
+        'aaa', 'sss', 'dad', 'fff', 'ggg', 'hhh', 'jaj',
+    ])
+
+
+    const memoizedAddBook = useMemo(()=>(() => {
+        setBooks([...books, 'sssa' + new Date().getTime()])
+
+    }),[books])
+    const memoizedAddBook2 = useCallback(() => {
+        setBooks([...books, 'sssa' + new Date().getTime()])
+
+    },[books])
+
+
+    return (
+        <div>
+            <button
+                onClick={() => setCounter(counter + 1)}
+            >+
+            </button>
+            <div>{counter}</div>
+
+            <Book
+                addBook={memoizedAddBook}
+
+            />
+        </div>
+    )
+}
+type SecretBooksPT = {
+
+    addBook: () => void
+}
+const SecretBooks = (props: SecretBooksPT) => {
+    console.log('UsersTable')
+    return (
+        <div>
+            <button
+                onClick={() => {
+                    props.addBook()
+                }}
+            >+book
+            </button>
+
+        </div>
+    )
+}
+
+const Book = React.memo(SecretBooks)
