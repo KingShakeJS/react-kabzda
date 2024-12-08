@@ -6,10 +6,21 @@ export default {
     title:'Clock Stories',
     component: Clock
 }
-export const BaseExample = () => {
+export const BaseDigitalExample = () => {
     return (
         <div>
-            <Clock/>
+            <Clock mode={'digital'} />
+        </div>
+    );
+};
+
+
+export const BaseAnalogExample = () => {
+
+
+    return (
+        <div>
+            <Clock mode={'analog'} />
         </div>
     );
 };
