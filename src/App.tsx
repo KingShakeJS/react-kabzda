@@ -10,7 +10,7 @@ import {OnOff} from "./components/onOff/OnOff";
 import {UncontrolledOnOff} from "./components/uncontrolledOnOff/UncontrolledOnOff";
 
 
-
+//остангвился на
 function App() {
 
     const [ratingValue, setRatingValue] = useState<RaringValueType>(0)
